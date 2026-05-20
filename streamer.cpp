@@ -133,8 +133,6 @@ void Streamer::on_message_depth(json& j) {
               << " Qty: " << depthPtr->bids.begin()->second << std::endl;
     std::cout << "Top Ask: " << depthPtr->asks.begin()->first
               << " Qty: " << depthPtr->asks.begin()->second << std::endl;
-
-
 }
 
 void Streamer::on_open(websocketpp::connection_hdl) {

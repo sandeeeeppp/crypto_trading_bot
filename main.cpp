@@ -8,6 +8,8 @@
 #include <cmath>
 #include <numeric>
 #include <fstream>
+#include <sstream>
+#include <cstdlib>
 
 std::string current_timestamp() {
     auto now = std::chrono::system_clock::now();
@@ -155,9 +157,17 @@ void strategy_dispatcher(const std::string& signal, const MarketDepth& depth, co
 }
 
 int main() {
-    std::string symbol = "btcusdt";
-    std::string api_key = "your_api_key";
-    std::string secret_key = "your_secret_key";
+    const char* api_key_env    = std::getenv("BINANCE_API_KEY");
+    const char* secret_key_env = std::getenv("BINANCE_SECRET_KEY");
+
+    if (!api_key_env || !secret_key_env) {
+        std::cerr << "Error: BINANCE_API_KEY and BINANCE_SECRET_KEY environment variables must be set." << std::endl;
+        return 1;
+    }
+
+    std::string symbol     = "btcusdt";
+    std::string api_key    = api_key_env;
+    std::string secret_key = secret_key_env;
 
     MarketDepth depth;
     TradeData trade_data;
@@ -180,14 +190,13 @@ int main() {
             std::cout << "Market Signal: " << signal << std::endl;
         }
 
-            strategy_dispatcher(signal, depth, trade_data, symbol, trader, position);
-            std::cout << "in while loop" << std::endl;
-            position.print();
-            if (!depth.bids.empty()) {
-                double mark_price = depth.bids.begin()->first;
-                std::cout << "Unrealized PnL: " << position.unrealized_pnl(mark_price) << std::endl;
-            }
-        
+        strategy_dispatcher(signal, depth, trade_data, symbol, trader, position);
+        position.print();
+        if (!depth.bids.empty()) {
+            double mark_price = depth.bids.begin()->first;
+            std::cout << "Unrealized PnL: " << position.unrealized_pnl(mark_price) << std::endl;
+        }
+
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
     }
 

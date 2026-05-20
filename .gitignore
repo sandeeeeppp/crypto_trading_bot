@@ -1,0 +1,116 @@
+# =============================================================================
+# C++ Crypto Trading Bot — .gitignore
+# =============================================================================
+
+# -------------------------------------
+# Compiled Binaries & Object Files
+# -------------------------------------
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+*.pdb
+*.ilk
+*.exp
+
+# -------------------------------------
+# Build & Output Directories
+# -------------------------------------
+build/
+bin/
+out/
+dist/
+release/
+debug/
+
+# -------------------------------------
+# Runtime Trade Logs (CSV artifacts)
+# Keep the directory, ignore its contents
+# -------------------------------------
+trade_logs/*.csv
+trade_logs/*.log
+
+# -------------------------------------
+# CMake Artifacts
+# -------------------------------------
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+install_manifest.txt
+
+# -------------------------------------
+# IDE & Editor Files
+# -------------------------------------
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.aps
+*.ncb
+*.suo
+*.user
+*.sdf
+*.opensdf
+ipch/
+
+# Visual Studio Code
+.vscode/
+
+# CLion / JetBrains
+.idea/
+cmake-build-debug/
+cmake-build-release/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# -------------------------------------
+# Operating System Files
+# -------------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# -------------------------------------
+# Environment & Secrets (NEVER commit)
+# -------------------------------------
+.env
+.env.local
+.env.*
+secrets.txt
+credentials.txt
+
+# -------------------------------------
+# Dependency / Package Caches
+# -------------------------------------
+vcpkg_installed/
+.conan/
+
+# -------------------------------------
+# Miscellaneous
+# -------------------------------------
+*.bak
+*.tmp
+*.swp
+*.orig
+core
