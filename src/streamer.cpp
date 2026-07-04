@@ -156,8 +156,7 @@ void Streamer::start() {
     while (running.load()) {
         // Re-initialize ASIO internals for a fresh connection attempt
         ws_client.reset();
-        ws_client.init_asio();
-
+        
         websocketpp::lib::error_code ec;
         client::connection_ptr con = ws_client.get_connection(uri, ec);
         if (ec) {

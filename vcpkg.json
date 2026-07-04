@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+  "name": "crypto-bot-v2",
+  "version": "2.0.0",
+  "dependencies": [
+    {
+      "name": "boost-asio",
+      "version>=": "1.84.0"
+    },
+    {
+      "name": "boost-beast",
+      "version>=": "1.84.0"
+    },
+    {
+      "name": "boost-circular-buffer",
+      "version>=": "1.84.0"
+    },
+    {
+      "name": "boost-system",
+      "version>=": "1.84.0"
+    },
+    {
+      "name": "openssl",
+      "version>=": "3.2.0"
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11.3"
+    },
+    {
+      "name": "benchmark",
+      "version>=": "1.8.3"
+    },
+    {
+      "name": "curl",
+      "version>=": "8.4.0"
+    },
+    {
+      "name": "boost-random",
+      "version>=": "1.84.0"
+    }
+  ]
+}

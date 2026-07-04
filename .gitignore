@@ -36,14 +36,19 @@ trade_logs/*.csv
 trade_logs/*.log
 
 # -------------------------------------
-# CMake Artifacts
+# CMake Artifacts (generated files only)
 # -------------------------------------
+# Note: CMakeLists.txt and CMakePresets.json do NOT match *.cmake
+# and will always be tracked by git — no negation rule needed.
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
-*.cmake
 install_manifest.txt
+# Generated .cmake files (e.g. Find*.cmake, *Config.cmake produced by cmake --build)
+# Do NOT add a bare *.cmake here — it would hide triplets/*.cmake and custom Find modules.
+# Instead, ignore only the known generated artifacts:
+build/
 
 # -------------------------------------
 # IDE & Editor Files
@@ -98,7 +103,12 @@ $RECYCLE.BIN/
 .env.local
 .env.*
 secrets.txt
+secrets.json
 credentials.txt
+config/credentials.json
+
+# Windows credential files
+*.credential
 
 # -------------------------------------
 # Dependency / Package Caches

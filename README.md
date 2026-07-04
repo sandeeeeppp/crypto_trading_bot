@@ -68,9 +68,25 @@ cl /std:c++17 /EHsc /O2 \
 
 ## Configuration — API Keys
 
-> **⚠️ Never hard-code your API keys.** The bot reads credentials exclusively from environment variables.
+> **⚠️ Never commit your API keys.** The `.env` file is listed in `.gitignore` and is loaded automatically at startup.
 
-Set the following variables in your shell before running:
+### Option 1 — `.env` file (recommended)
+
+Copy the template and fill in your credentials:
+
+```bash
+cp .env.example .env   # or just create .env manually
+```
+
+`.env` format:
+```ini
+BINANCE_API_KEY=YOUR_BINANCE_API_KEY
+BINANCE_SECRET_KEY=YOUR_BINANCE_SECRET_KEY
+```
+
+The bot parses `.env` at startup, sets the variables into the process environment, and then falls through to `std::getenv`. Entries already present in the shell environment are **not** overwritten, so shell exports always take precedence.
+
+### Option 2 — Shell environment variables (CI / containers)
 
 **Windows (PowerShell)**
 ```powershell
@@ -90,7 +106,7 @@ export BINANCE_API_KEY="YOUR_BINANCE_API_KEY"
 export BINANCE_SECRET_KEY="YOUR_BINANCE_SECRET_KEY"
 ```
 
-The bot will refuse to start and print an error if either variable is missing.
+The bot will print an error and exit if neither source provides the required keys.
 
 ---
 
