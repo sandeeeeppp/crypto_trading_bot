@@ -1,4 +1,4 @@
-# ⚡ Crypto Algo Trading Engine
+#  Crypto Algo Trading Engine
 
 A **high-performance, event-driven cryptocurrency trading engine** written in **C++17**. It connects to the **Binance WebSocket API** for real-time market data ingestion, computes regime-adaptive signals using OLS regression and momentum scoring, and executes orders asynchronously via the **Binance REST API** — all within a multi-threaded, mutex-guarded producer-consumer pipeline.
 
@@ -6,7 +6,7 @@ A **high-performance, event-driven cryptocurrency trading engine** written in **
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
@@ -50,7 +50,7 @@ A **high-performance, event-driven cryptocurrency trading engine** written in **
 
 ---
 
-## 📊 Performance Benchmarks
+## Performance Benchmarks
 
 | Metric | Value |
 |---|---|
@@ -65,7 +65,7 @@ A **high-performance, event-driven cryptocurrency trading engine** written in **
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 crypto_Algo_Trading_Bot/
@@ -105,7 +105,7 @@ crypto_Algo_Trading_Bot/
 
 ---
 
-## 🔧 Dependencies
+##  Dependencies
 
 | Library | Purpose | Install via vcpkg |
 |---|---|---|
@@ -117,7 +117,7 @@ crypto_Algo_Trading_Bot/
 
 ---
 
-## 🚀 Build Instructions
+##  Build Instructions
 
 ### Prerequisites
 
@@ -150,12 +150,9 @@ g++ -std=c++17 -O2 \
 
 ---
 
-## 🔑 Configuration — API Keys
+##  Configuration — API Keys
 
-> **⚠️ Never commit your API keys.** The `.env` file is listed in `.gitignore`.
-
-### Option 1 — `.env` file (Recommended)
-
+### `.env` file 
 Create a `.env` file in the project root:
 
 ```ini
@@ -165,23 +162,7 @@ BINANCE_SECRET_KEY=your_secret_key_here
 
 The bot parses `.env` at startup and loads the keys into the process environment. Shell environment variables take precedence over `.env` values.
 
-### Option 2 — Shell environment variables
 
-```powershell
-# PowerShell
-$env:BINANCE_API_KEY    = "your_api_key_here"
-$env:BINANCE_SECRET_KEY = "your_secret_key_here"
-```
-
-```bash
-# Linux / macOS
-export BINANCE_API_KEY="your_api_key_here"
-export BINANCE_SECRET_KEY="your_secret_key_here"
-```
-
-The bot will print an error and exit if the keys are missing from both sources.
-
----
 
 ## ▶️ Running
 
@@ -205,7 +186,7 @@ Trade logs are appended to `trade_logs/btcusdt.csv`.
 
 ---
 
-## 🧠 Trading Strategies
+## Trading Strategies
 
 | Signal | Strategy | Description |
 |---|---|---|
@@ -220,7 +201,7 @@ Signal detection uses a composite score based on:
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, strategy ideas, and optimizations are welcome.
 
@@ -230,6 +211,6 @@ Contributions, strategy ideas, and optimizations are welcome.
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This project is for **educational and experimental purposes only**. It is not financial advice. Trading cryptocurrencies involves substantial risk of loss. Always test with the [Binance Testnet](https://testnet.binance.vision/) before deploying with real funds.
